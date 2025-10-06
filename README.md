@@ -30,6 +30,6 @@ Training pipeline: Implemented training with data normalization, stratified trai
 
 Evaluation: Confusion matrix and per-class accuracy visualization included.
 
-<img width="308" height="623" alt="image" src="https://github.com/user-attachments/assets/b4f2cb1f-23fe-48f0-8293-44182e90f52f" />
+<img width="250" height="100" alt="image" src="https://github.com/user-attachments/assets/b4f2cb1f-23fe-48f0-8293-44182e90f52f" />
 
 Model saving: Trained network and normalization parameters saved for future use.   
