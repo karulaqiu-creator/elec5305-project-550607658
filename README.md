@@ -19,10 +19,8 @@ Feature extraction: Basic and advanced MFCC extraction implemented with handling
 <img width="502" height="523" alt="image" src="https://github.com/user-attachments/assets/f96166c2-d3f0-426c-a940-f0486727b399" />
 
 Data augmentation: Integrated audioDataAugmenter (if Audio Toolbox is available) for time-stretching, pitch-shifting, and volume control.  
-<img width="327" height="526" alt="image" src="https://github.com/user-attachments/assets/a81f9d07-eb7a-4595-8461-0a187d7a8d9b" />
-<img width="540" height="360" alt="image" src="https://github.com/user-attachments/assets/9c2e2e31-cbc7-4150-91b7-4bfa41b4c9ee" />
-<img width="261" height="737" alt="image" src="https://github.com/user-attachments/assets/98f60a23-702d-4fea-9500-a2aac2185225" />
-<img width="261" height="448" alt="image" src="https://github.com/user-attachments/assets/c442589b-836e-4545-9347-836058c077b3" />
+<img width="1056" height="623" alt="image" src="https://github.com/user-attachments/assets/8b80fa8d-7327-4883-94b1-ae9acce2cc3c" />
+
 
 Model architecture: Designed hybrid CNN-LSTM network for temporal and local feature learning.  
 <img width="550" height="410" alt="image" src="https://github.com/user-attachments/assets/89d00718-975f-4912-85ca-545c08900680" />
