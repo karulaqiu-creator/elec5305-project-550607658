@@ -19,17 +19,17 @@ Feature extraction: Basic and advanced MFCC extraction implemented with handling
 <img width="250" height="200" alt="image" src="https://github.com/user-attachments/assets/f96166c2-d3f0-426c-a940-f0486727b399" />
 
 Data augmentation: Integrated audioDataAugmenter (if Audio Toolbox is available) for time-stretching, pitch-shifting, and volume control.  
-<img width="1056" height="623" alt="image" src="https://github.com/user-attachments/assets/8b80fa8d-7327-4883-94b1-ae9acce2cc3c" />
+<img width="500" height="300" alt="image" src="https://github.com/user-attachments/assets/8b80fa8d-7327-4883-94b1-ae9acce2cc3c" />
 
 
 Model architecture: Designed hybrid CNN-LSTM network for temporal and local feature learning.  
 <img width="250" height="200" alt="image" src="https://github.com/user-attachments/assets/89d00718-975f-4912-85ca-545c08900680" />
 
 Training pipeline: Implemented training with data normalization, stratified train/test split, and validation monitoring.  
-<img width="250" height="400" alt="image" src="https://github.com/user-attachments/assets/fd71402a-da74-42df-bc9e-6850dd543a25" />
+<img width="190" height="300" alt="image" src="https://github.com/user-attachments/assets/fd71402a-da74-42df-bc9e-6850dd543a25" />
 
 Evaluation: Confusion matrix and per-class accuracy visualization included.
 
-<img width="250" height="400" alt="image" src="https://github.com/user-attachments/assets/b4f2cb1f-23fe-48f0-8293-44182e90f52f" />
+<img width="190" height="300" alt="image" src="https://github.com/user-attachments/assets/b4f2cb1f-23fe-48f0-8293-44182e90f52f" />
 
 Model saving: Trained network and normalization parameters saved for future use.   
