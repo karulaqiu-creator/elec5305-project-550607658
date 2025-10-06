@@ -8,5 +8,6 @@ Feature extraction: Basic and advanced MFCC extraction implemented with handling
 Data augmentation: Integrated audioDataAugmenter (if Audio Toolbox is available) for time-stretching, pitch-shifting, and volume control.  
 Model architecture: Designed hybrid CNN-LSTM network for temporal and local feature learning.  
 Training pipeline: Implemented training with data normalization, stratified train/test split, and validation monitoring.  
-Evaluation: Confusion matrix and per-class accuracy visualization included.  
+Evaluation: Confusion matrix and per-class accuracy visualization included.  <img width="573" height="178" alt="image" src="https://github.com/user-attachments/assets/a71e62ee-c87d-4542-a9c1-9bd43b090044" />
+
 Model saving: Trained network and normalization parameters saved for future use.   
