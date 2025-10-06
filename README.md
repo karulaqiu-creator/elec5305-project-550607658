@@ -13,10 +13,25 @@ The process of the dataset preparation is as follows:
    <img width="573" height="178" alt="image" src="https://github.com/user-attachments/assets/f4f3b628-1244-4fee-b8f7-019b7522dcb9" />
 
 Pre-processing: Speech recordings organized by speaker with preprocessing (DC removal, pre-emphasis, normalization).  
+<img width="482" height="421" alt="1" src="https://github.com/user-attachments/assets/afb463e4-9207-44ed-9521-7ad70098a69e" />
+
 Feature extraction: Basic and advanced MFCC extraction implemented with handling of variable frame lengths.  
+<img width="502" height="523" alt="image" src="https://github.com/user-attachments/assets/f96166c2-d3f0-426c-a940-f0486727b399" />
+
 Data augmentation: Integrated audioDataAugmenter (if Audio Toolbox is available) for time-stretching, pitch-shifting, and volume control.  
+<img width="327" height="526" alt="image" src="https://github.com/user-attachments/assets/a81f9d07-eb7a-4595-8461-0a187d7a8d9b" />
+<img width="540" height="360" alt="image" src="https://github.com/user-attachments/assets/9c2e2e31-cbc7-4150-91b7-4bfa41b4c9ee" />
+<img width="261" height="737" alt="image" src="https://github.com/user-attachments/assets/98f60a23-702d-4fea-9500-a2aac2185225" />
+<img width="261" height="448" alt="image" src="https://github.com/user-attachments/assets/c442589b-836e-4545-9347-836058c077b3" />
+
 Model architecture: Designed hybrid CNN-LSTM network for temporal and local feature learning.  
+<img width="550" height="410" alt="image" src="https://github.com/user-attachments/assets/89d00718-975f-4912-85ca-545c08900680" />
+
 Training pipeline: Implemented training with data normalization, stratified train/test split, and validation monitoring.  
-Evaluation: Confusion matrix and per-class accuracy visualization included.  
+<img width="321" height="597" alt="image" src="https://github.com/user-attachments/assets/fd71402a-da74-42df-bc9e-6850dd543a25" />
+
+Evaluation: Confusion matrix and per-class accuracy visualization included.
+
+<img width="308" height="623" alt="image" src="https://github.com/user-attachments/assets/b4f2cb1f-23fe-48f0-8293-44182e90f52f" />
 
 Model saving: Trained network and normalization parameters saved for future use.   
