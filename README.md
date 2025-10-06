@@ -32,4 +32,9 @@ Evaluation: Confusion matrix and per-class accuracy visualization included.
 
 <img width="190" height="300" alt="image" src="https://github.com/user-attachments/assets/b4f2cb1f-23fe-48f0-8293-44182e90f52f" />
 
-Model saving: Trained network and normalization parameters saved for future use.   
+Model saving: Trained network and normalization parameters saved for future use.    
+References:  
+96syh. "matlab-speaker-recognition" GitHub, 2025, https://github.com/96syh/matlab-speaker-recognition. Accessed 6 Oct. 2025.  
+Ko, T., Peddinti, V., Povey, D., & Khudanpur, S., 2015. Audio augmentation for speech recognition. Interspeech 2015, pp. 3586–3589.  
+Snyder, D., Garcia-Romero, D., Sell, G., Povey, D., & Khudanpur, S., 2018. X-vectors: Robust DNN embeddings for speaker recognition. IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), pp. 5329–5333.  
+Tiwari, M., & Verma, D. K. (2024). Enhanced text-independent speaker recognition using MFCC, Bi-LSTM, and CNN-based noise removal techniques. International Journal of Speech Technology, 27(4), 1013–1026.  
