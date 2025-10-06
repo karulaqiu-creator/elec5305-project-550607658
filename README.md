@@ -10,7 +10,7 @@ The process of the dataset preparation is as follows:
 2.	Subset Selection: To conserve storage space and training time, only 15 speakers are kept and each speakers have approximately 160 to ensure balanced data across speakers.
 3.	Blind Test Set: Separately, download a separate "blind test set" to evaluate model performance on unseen data.  
 4.	Data Organization: The data is organized by speaker, with each speaker corresponding to a subfolder:
-   <img width="250" height="200" alt="image" src="https://github.com/user-attachments/assets/f4f3b628-1244-4fee-b8f7-019b7522dcb9" />
+   <img width="350" height="300" alt="image" src="https://github.com/user-attachments/assets/f4f3b628-1244-4fee-b8f7-019b7522dcb9" />
 
 Pre-processing: Speech recordings organized by speaker with preprocessing (DC removal, pre-emphasis, normalization).  
 <img width="250" height="200" alt="1" src="https://github.com/user-attachments/assets/afb463e4-9207-44ed-9521-7ad70098a69e" />
@@ -26,10 +26,10 @@ Model architecture: Designed hybrid CNN-LSTM network for temporal and local feat
 <img width="250" height="200" alt="image" src="https://github.com/user-attachments/assets/89d00718-975f-4912-85ca-545c08900680" />
 
 Training pipeline: Implemented training with data normalization, stratified train/test split, and validation monitoring.  
-<img width="250" height="200" alt="image" src="https://github.com/user-attachments/assets/fd71402a-da74-42df-bc9e-6850dd543a25" />
+<img width="250" height="300" alt="image" src="https://github.com/user-attachments/assets/fd71402a-da74-42df-bc9e-6850dd543a25" />
 
 Evaluation: Confusion matrix and per-class accuracy visualization included.
 
-<img width="250" height="100" alt="image" src="https://github.com/user-attachments/assets/b4f2cb1f-23fe-48f0-8293-44182e90f52f" />
+<img width="250" height="300" alt="image" src="https://github.com/user-attachments/assets/b4f2cb1f-23fe-48f0-8293-44182e90f52f" />
 
 Model saving: Trained network and normalization parameters saved for future use.   
