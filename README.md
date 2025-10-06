@@ -1,6 +1,6 @@
 # Elec5305-project
 Project Overview:
-This project implements an optimized speaker recognition system using deep learning techniques. The system extracts advanced MFCC features, including Δ and ΔΔ coefficients, from speech recordings and employs a hybrid CNN-LSTM architecture for classification. Data augmentation is applied to increase robustness, leveraging time-stretching, pitch-shifting, and volume control. The goal is to achieve speaker identification accuracy above 95%.\n
+This project implements an optimized speaker recognition system using deep learning techniques. The system extracts advanced MFCC features, including Δ and ΔΔ coefficients, from speech recordings and employs a hybrid CNN-LSTM architecture for classification. Data augmentation is applied to increase robustness, leveraging time-stretching, pitch-shifting, and volume control. The goal is to achieve speaker identification accuracy above 95%.
 
 Current Progress / Achievements:   
 Dataset preparation:   
