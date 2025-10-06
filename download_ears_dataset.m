@@ -4,8 +4,8 @@ clc; clear;
 % ⚙️ Configuration
 % ==============================
 output_folder = 'EARS_dataset_subset';
-max_files_per_speaker = 160;   % 每位说话人最多保留多少个音频文件
-num_speakers_to_download = 15; % 可改为更少或更多
+max_files_per_speaker = 160;   
+num_speakers_to_download = 15; 
 base_url = 'https://github.com/facebookresearch/ears_dataset/releases/download/dataset/';
 blind_url = 'https://github.com/facebookresearch/ears_dataset/releases/download/blind_testset/blind_testset.zip';
 
@@ -35,7 +35,7 @@ for i = 1:num_speakers_to_download
         unzip(zip_name, speaker_id);
         delete(zip_name);
 
-        % 限制每位说话人文件数量
+        
         speaker_path = fullfile(pwd, speaker_id);
         wav_files = dir(fullfile(speaker_path, '*.wav'));
         if numel(wav_files) > max_files_per_speaker
@@ -66,4 +66,5 @@ end
 % ✅ Finish
 % ==============================
 cd(original_dir);
+
 fprintf('\n✅ All downloads complete. Dataset stored in "%s"\n', fullfile(pwd, output_folder));
