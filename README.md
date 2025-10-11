@@ -38,3 +38,8 @@ References:
 Ko, T., Peddinti, V., Povey, D., & Khudanpur, S., 2015. Audio augmentation for speech recognition. Interspeech 2015, pp. 3586–3589.  
 Snyder, D., Garcia-Romero, D., Sell, G., Povey, D., & Khudanpur, S., 2018. X-vectors: Robust DNN embeddings for speaker recognition. IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), pp. 5329–5333.  
 Tiwari, M., & Verma, D. K. (2024). Enhanced text-independent speaker recognition using MFCC, Bi-LSTM, and CNN-based noise removal techniques. International Journal of Speech Technology, 27(4), 1013–1026.  
+### 📁 Folder Structure
+- `code/`: Training, feature extraction, and prediction scripts.
+- `models/`: Trained model (`.mat`) file.
+- `samples/`: Example input and output samples for demonstration.
+- `report.pdf`: Project report including system design and results.
