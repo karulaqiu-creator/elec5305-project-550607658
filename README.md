@@ -56,8 +56,15 @@ Model saving: Trained network and normalization parameters saved for future use.
 
 
 ### 🧩 Example
-Input sample: `samples/input_sample.wav`  
-Predicted speaker: **Speaker_03**  
+This example shows how to predict the speaker of a given audio file using the trained model.
+
+1. **Input audio file:**  
+`samples/input_sample.wav`
+
+2. **Run the prediction in MATLAB:**  
+```matlab
+% Load and predict speaker
+predict_speaker('samples/input_sample.wav');
 
 
 References:  
