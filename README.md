@@ -62,12 +62,11 @@ This example shows how to predict the speaker of a given audio file using the tr
 `samples/input_sample.wav`
 
 2. **Run the prediction in MATLAB:**  
-```
-Load and predict speaker
+``matlab
+% Load and predict speaker
 predict_speaker('samples/input_sample.wav');
 
-
-References:  
+```References:  
 96syh. "matlab-speaker-recognition" GitHub, 2025, https://github.com/96syh/matlab-speaker-recognition. Accessed 6 Oct. 2025.  
 Ko, T., Peddinti, V., Povey, D., & Khudanpur, S., 2015. Audio augmentation for speech recognition. Interspeech 2015, pp. 3586–3589.  
 Snyder, D., Garcia-Romero, D., Sell, G., Povey, D., & Khudanpur, S., 2018. X-vectors: Robust DNN embeddings for speaker recognition. IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), pp. 5329–5333.  
