@@ -9,10 +9,15 @@ This project uses EARS (Expressive Anechoic Recordings of Speech) as dataset to 
 The process of the dataset preparation is as follows:
 1.	Downloading dataset: Write a MATLAB script to download the compressed files (such as p001.zip, p002.zip, etc.) for each speaker directly from the official GitHub repository and automatically decompress them to a local directory. 
 2.	Subset Selection: To conserve storage space and training time, only 15 speakers are kept and each speakers have approximately 160 to ensure balanced data across speakers.
-3.	Blind Test Set: Separately, download a separate "blind test set" to evaluate model performance on unseen data.  
-4.	Data Organization: The data is organized by speaker, with each speaker corresponding to a subfolder:
-   <img width="350" height="300" alt="image" src="https://github.com/user-attachments/assets/f4f3b628-1244-4fee-b8f7-019b7522dcb9" />
-
+3.	Data Organization: The data is organized by speaker, with each speaker corresponding to a subfolder:
+dataset/
+├── speaker1
+├── speaker2
+├── speaker3
+.
+.
+.
+└── speaker15
 Pre-processing: Speech recordings organized by speaker with preprocessing (DC removal, pre-emphasis, normalization).  
 <img width="250" height="200" alt="1" src="https://github.com/user-attachments/assets/afb463e4-9207-44ed-9521-7ad70098a69e" />
 
@@ -34,12 +39,21 @@ Evaluation: Confusion matrix and per-class accuracy visualization included.
 <img width="190" height="300" alt="image" src="https://github.com/user-attachments/assets/b4f2cb1f-23fe-48f0-8293-44182e90f52f" />
 
 Model saving: Trained network and normalization parameters saved for future use.    
+
+### 📁 Folder Structure
+- `code/`: Training, feature extraction, and prediction scripts.
+- `models/`: Trained model (`.mat`) file.
+- `samples/`: Example input and output samples for demonstration.
+
+
+### 🧩 Example
+Input sample: `samples/input_sample.wav`  
+Predicted speaker: **Speaker_03**  
+
+
 References:  
 96syh. "matlab-speaker-recognition" GitHub, 2025, https://github.com/96syh/matlab-speaker-recognition. Accessed 6 Oct. 2025.  
 Ko, T., Peddinti, V., Povey, D., & Khudanpur, S., 2015. Audio augmentation for speech recognition. Interspeech 2015, pp. 3586–3589.  
 Snyder, D., Garcia-Romero, D., Sell, G., Povey, D., & Khudanpur, S., 2018. X-vectors: Robust DNN embeddings for speaker recognition. IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), pp. 5329–5333.  
 Tiwari, M., & Verma, D. K. (2024). Enhanced text-independent speaker recognition using MFCC, Bi-LSTM, and CNN-based noise removal techniques. International Journal of Speech Technology, 27(4), 1013–1026.  
-### 📁 Folder Structure
-- `code/`: Training, feature extraction, and prediction scripts.
-- `models/`: Trained model (`.mat`) file.
-- `samples/`: Example input and output samples for demonstration.
+
