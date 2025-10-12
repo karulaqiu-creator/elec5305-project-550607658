@@ -10,7 +10,9 @@ The process of the dataset preparation is as follows:
 1.	Downloading dataset: Write a MATLAB script to download the compressed files (such as p001.zip, p002.zip, etc.) for each speaker directly from the official GitHub repository and automatically decompress them to a local directory. 
 2.	Subset Selection: To conserve storage space and training time, only 15 speakers are kept and each speakers have approximately 160 to ensure balanced data across speakers.
 3.	Data Organization: The data is organized by speaker, with each speaker corresponding to a subfolder:
+
 dataset/
+
 ├── speaker1
 
 ├── speaker2
