@@ -1,4 +1,5 @@
 # Elec5305-project
+## 🎙️ Speaker Recognition Project
 Project Overview:
 This project implements an optimized speaker recognition system using deep learning techniques. The system extracts advanced MFCC features, including Δ and ΔΔ coefficients, from speech recordings and employs a hybrid CNN-LSTM architecture for classification. Data augmentation is applied to increase robustness, leveraging time-stretching, pitch-shifting, and volume control. The goal is to achieve speaker identification accuracy above 95%.
 
@@ -42,4 +43,3 @@ Tiwari, M., & Verma, D. K. (2024). Enhanced text-independent speaker recognition
 - `code/`: Training, feature extraction, and prediction scripts.
 - `models/`: Trained model (`.mat`) file.
 - `samples/`: Example input and output samples for demonstration.
-- `report.pdf`: Project report including system design and results.
