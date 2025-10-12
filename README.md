@@ -12,12 +12,19 @@ The process of the dataset preparation is as follows:
 3.	Data Organization: The data is organized by speaker, with each speaker corresponding to a subfolder:
 dataset/
 ├── speaker1
+
 ├── speaker2
+
 ├── speaker3
+
 .
+
 .
+
 .
+
 └── speaker15
+
 Pre-processing: Speech recordings organized by speaker with preprocessing (DC removal, pre-emphasis, normalization).  
 <img width="250" height="200" alt="1" src="https://github.com/user-attachments/assets/afb463e4-9207-44ed-9521-7ad70098a69e" />
 
