@@ -141,11 +141,13 @@ Show probability scores or a simple UI (depending on how you implemented it).
 Stop the script with enter in the terminal.
 
 🧾3. Summary
+
 Speaker recognition (MATLAB):
 download_ears_dataset.m – download dataset
 extract_features.m – extract MFCC features
 balanced_final_train.m – train CNN + BiLSTM speaker model and save speaker_model_v5_balanced_final_fixed.mat
 examples/predict_speaker.m – demo: select a .wav file and predict the speaker
+
 Keyword spotting (Python):
 kws_training.py – train CNN–Transformer KWS model and save kws_cnn_transformer.pth
 Keyword_Detection.py – load the model and run real-time keyword detection from the microphone
