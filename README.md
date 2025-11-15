@@ -140,7 +140,7 @@ Display the detected keyword in the console, and/or
 Show probability scores or a simple UI (depending on how you implemented it).
 Stop the script with enter in the terminal.
 
-3. 🧾Summary
+🧾3. Summary
 Speaker recognition (MATLAB):
 download_ears_dataset.m – download dataset
 extract_features.m – extract MFCC features
