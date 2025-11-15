@@ -27,8 +27,11 @@ Set the current folder to the project root.
 Run:download_ears_dataset
 
 The script will:
+
 Download the EARS (or similar) speaker dataset.
+
 Unpack it into the project’s data directory (see comments in the script for the exact folder).
+
 Arrange files into subfolders per speaker (each speaker has their own folder of .wav files).
 
 🎼1.3. Step 2 – Extract MFCC features
@@ -38,11 +41,17 @@ This script computes MFCC-based features for all audio files and saves them into
 Run extract_features
 
 After this step you should see a file like:
+
 allFeatures.mat
+
 saved in your dataset folder (path is defined inside extract_features.m).
+
 It typically contains:
+
 allFeatures – 4D tensor of MFCC features
+
 allLabels – speaker labels
+
 fs, frameSize, frameStep, maxFrames, etc.
 
 🤖1.4. Step 3 – Train the speaker recognition model
@@ -52,14 +61,23 @@ This script Loads allFeatures.mat builds a CNN + BiLSTM architecture,applies dat
 Run balanced_final_train
 
 During training you will see:
+
 Training progress window (loss, accuracy curves)
+
 Final train and test accuracy printed in the MATLAB console and confusion matrix
+
 At the end, a file like:
+
 speaker_model_v5_balanced_final_fixed.mat
+
 is saved into your data or project folder, containing:
+
 net – trained network
+
 normParam – normalization parameters
+
 Feature configuration (e.g., numCoeffs, fs, frameSize, …)
+
 Train/test accuracy
 
 🔍1.5. Step 4 – Run the speaker prediction demo
@@ -73,18 +91,31 @@ Classifies the speaker and visualises the result
 Run predict_speaker
 
 What will happen:
+
 A file selection dialog pops up – choose a .wav file containing speech.
+
 The script:
+
 Resamples the audio if needed
+
 Applies preprocessing (DC removal, pre-emphasis, bandpass, VAD)
+
 Extracts MFCC + Δ + ΔΔ features
+
 Normalises them with the stored normParam
+
 Passes them to the trained CNN–BiLSTM model
+
 In the MATLAB command window you will see:
+
 text
+
 Predicted speaker: <speaker_id> (Confidence: XX.XX%)
+
 A figure window shows:
+
 The MFCC feature map for the selected utterance
+
 A bar plot with the predicted probability for each speaker
 
 🔑2. Keyword Spotting (KWS) – Python
@@ -101,43 +132,70 @@ librosa or torchaudio (for feature extraction)
 
 🏋️‍♂️2.2. Step 1 – Train the KWS model
 Script: kws_training.py
+
 This script:
+
 Loads the keyword dataset (e.g., a speech commands dataset)
+
 Builds a CNN–Transformer keyword spotting network
+
 Trains the model
+
 Saves learned weights to kws_cnn_transformer.pth
 
 Run kws_training.py
 
 Typical behaviour:
+
 Training loss and accuracy printed to the terminal
+
 Optionally, validation accuracy / confusion matrix
+
 At the end of training a file like:
+
 kws_cnn_transformer.pth
+
 is created in the output or models/ directory (check the script for the exact path).
 
 🎤2.3. Step 2 – Real-time keyword detection
 Script: Keyword_Detection.py
+
 This script:
+
 Loads the trained model from kws_cnn_transformer.pth
+
 Opens the microphone / audio input stream
+
 Continuously listens to audio
+
 Applies the same feature extraction used during training
+
 Runs the CNN–Transformer model on sliding windows
+
 Prints or visualises detected keywords and timestamps
+
 Before running:
+
 Make sure the path to kws_cnn_transformer.pth inside Keyword_Detection.py is correct.
+
 Check / configure:
+
 device index for your microphone (if the script supports it)
+
 the list of target keywords
 
 Run python Keyword_Detection.py
 
 What you should see:
+
 The script will start capturing audio from your microphone.
+
 When you say one of the trained keywords, the program will:
+
 Display the detected keyword in the console, and/or
+
 Show probability scores or a simple UI (depending on how you implemented it).
+
 Stop the script with enter in the terminal.
 
 🧾3. Summary
