@@ -38,7 +38,8 @@ Arrange files into subfolders per speaker (each speaker has their own folder of 
 🎼1.3. Step 2 – Extract MFCC features
 Script: extract_features.m
 This script computes MFCC-based features for all audio files and saves them into a single .mat file used for training.
-run extract_features
+
+Run extract_features
 After this step you should see a file like:
 allFeatures.mat
 saved in your dataset folder (path is defined inside extract_features.m).
@@ -50,7 +51,8 @@ fs, frameSize, frameStep, maxFrames, etc.
 🤖1.4. Step 3 – Train the speaker recognition model
 Script: balanced_final_train.m
 This script Loads allFeatures.mat builds a CNN + BiLSTM architecture,applies data augmentation and global normalization,trains the classifier with a class-balanced loss,saves the trained model as speaker_model_v5_balanced_final_fixed.mat
-run balanced_final_train
+
+Run balanced_final_train
 During training you will see:
 Training progress window (loss, accuracy curves)
 Final train and test accuracy printed in the MATLAB console and confusion matrix
@@ -69,7 +71,8 @@ This script Loads speaker_model_v5_balanced_final_fixed.mat
 Lets you choose a .wav file via a file dialog
 Applies the same preprocessing and MFCC extraction pipeline
 Classifies the speaker and visualises the result
-run predict_speaker
+
+Run predict_speaker
 What will happen:
 A file selection dialog pops up – choose a .wav file containing speech.
 The script:
@@ -104,7 +107,8 @@ Loads the keyword dataset (e.g., a speech commands dataset)
 Builds a CNN–Transformer keyword spotting network
 Trains the model
 Saves learned weights to kws_cnn_transformer.pth
-run kws_training.py
+
+Run kws_training.py
 Typical behaviour:
 Training loss and accuracy printed to the terminal
 Optionally, validation accuracy / confusion matrix
@@ -126,8 +130,8 @@ Make sure the path to kws_cnn_transformer.pth inside Keyword_Detection.py is cor
 Check / configure:
 device index for your microphone (if the script supports it)
 the list of target keywords
-Run:
-python Keyword_Detection.py
+
+Run python Keyword_Detection.py
 What you should see:
 The script will start capturing audio from your microphone.
 When you say one of the trained keywords, the program will:
