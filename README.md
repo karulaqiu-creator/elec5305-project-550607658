@@ -23,16 +23,12 @@ This script downloads and prepares the speaker recognition dataset.
 How to run:
 
 Open MATLAB.
-
 Set the current folder to the project root.
-
 Run:download_ears_dataset
+
 The script will:
-
 Download the EARS (or similar) speaker dataset.
-
 Unpack it into the project’s data directory (see comments in the script for the exact folder).
-
 Arrange files into subfolders per speaker (each speaker has their own folder of .wav files).
 
 🎼1.3. Step 2 – Extract MFCC features
@@ -40,6 +36,7 @@ Script: extract_features.m
 This script computes MFCC-based features for all audio files and saves them into a single .mat file used for training.
 
 Run extract_features
+
 After this step you should see a file like:
 allFeatures.mat
 saved in your dataset folder (path is defined inside extract_features.m).
@@ -53,6 +50,7 @@ Script: balanced_final_train.m
 This script Loads allFeatures.mat builds a CNN + BiLSTM architecture,applies data augmentation and global normalization,trains the classifier with a class-balanced loss,saves the trained model as speaker_model_v5_balanced_final_fixed.mat
 
 Run balanced_final_train
+
 During training you will see:
 Training progress window (loss, accuracy curves)
 Final train and test accuracy printed in the MATLAB console and confusion matrix
@@ -73,6 +71,7 @@ Applies the same preprocessing and MFCC extraction pipeline
 Classifies the speaker and visualises the result
 
 Run predict_speaker
+
 What will happen:
 A file selection dialog pops up – choose a .wav file containing speech.
 The script:
@@ -109,6 +108,7 @@ Trains the model
 Saves learned weights to kws_cnn_transformer.pth
 
 Run kws_training.py
+
 Typical behaviour:
 Training loss and accuracy printed to the terminal
 Optionally, validation accuracy / confusion matrix
@@ -132,6 +132,7 @@ device index for your microphone (if the script supports it)
 the list of target keywords
 
 Run python Keyword_Detection.py
+
 What you should see:
 The script will start capturing audio from your microphone.
 When you say one of the trained keywords, the program will:
