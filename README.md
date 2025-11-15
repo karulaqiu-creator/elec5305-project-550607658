@@ -1,73 +1,245 @@
-# Elec5305-project
-## 🎙️ Speaker Recognition Project
-Project Overview:
-This project implements an optimized speaker recognition system using deep learning techniques. The system extracts advanced MFCC features, including Δ and ΔΔ coefficients, from speech recordings and employs a hybrid CNN-LSTM architecture for classification. Data augmentation is applied to increase robustness, leveraging time-stretching, pitch-shifting, and volume control. The goal is to achieve speaker identification accuracy above 95%.
+# 🎙️ELEC5305 Project – Speaker Recognition & Keyword Spotting
 
-Current Progress / Achievements:   
-Dataset preparation:   
-This project uses EARS (Expressive Anechoic Recordings of Speech) as dataset to do the model training and evaluation of speaker recognition and keyword detection. This dataset high-quality speech recordings from multiple speakers, making it suitable for deep learning speech recognition tasks.
-The process of the dataset preparation is as follows:
-1.	Downloading dataset: Write a MATLAB script to download the compressed files (such as p001.zip, p002.zip, etc.) for each speaker directly from the official GitHub repository and automatically decompress them to a local directory. 
-2.	Subset Selection: To conserve storage space and training time, only 15 speakers are kept and each speakers have approximately 160 to ensure balanced data across speakers.
-3.	Data Organization: The data is organized by speaker, with each speaker corresponding to a subfolder:
+This repository contains the implementation of my ELEC5305 project, which has two main parts:
 
-dataset/
+1. **Speaker recognition** using a CNN + BiLSTM model in MATLAB.  
+2. **Keyword spotting (KWS)** using a lightweight CNN–Transformer model in Python.
 
-├── speaker1
+🗣️## 1. Speaker Recognition (MATLAB)
 
-├── speaker2
+### 1.1. Prerequisites
 
-├── speaker3
+- MATLAB (R2021b or later is recommended)
+- 🔧Toolboxes:
+  - Signal Processing Toolbox
+  - Deep Learning Toolbox
+  - Audio Toolbox
 
-.
-.
-.
+📥1.2. Step 1 – Download the speaker dataset
+Script: download_ears_dataset.m
 
-└── speaker15
+This script downloads and prepares the speaker recognition dataset.
 
-Pre-processing: Speech recordings organized by speaker with preprocessing (DC removal, pre-emphasis, normalization).  
-<img width="250" height="200" alt="1" src="https://github.com/user-attachments/assets/afb463e4-9207-44ed-9521-7ad70098a69e" />
+How to run:
 
-Feature extraction: Basic and advanced MFCC extraction implemented with handling of variable frame lengths.  
-<img width="250" height="200" alt="image" src="https://github.com/user-attachments/assets/f96166c2-d3f0-426c-a940-f0486727b399" />
+Open MATLAB.
 
-Data augmentation: Integrated audioDataAugmenter (if Audio Toolbox is available) for time-stretching, pitch-shifting, and volume control.  
-<img width="500" height="300" alt="image" src="https://github.com/user-attachments/assets/8b80fa8d-7327-4883-94b1-ae9acce2cc3c" />
+Set the current folder to the project root.
 
+Run:download_ears_dataset
+The script will:
 
-Model architecture: Designed hybrid CNN-LSTM network for temporal and local feature learning.  
-<img width="250" height="200" alt="image" src="https://github.com/user-attachments/assets/89d00718-975f-4912-85ca-545c08900680" />
+Download the EARS (or similar) speaker dataset.
 
-Training pipeline: Implemented training with data normalization, stratified train/test split, and validation monitoring.  
-<img width="190" height="300" alt="image" src="https://github.com/user-attachments/assets/fd71402a-da74-42df-bc9e-6850dd543a25" />
+Unpack it into the project’s data directory (see comments in the script for the exact folder).
 
-Evaluation: Confusion matrix and per-class accuracy visualization included.
+Arrange files into subfolders per speaker (each speaker has their own folder of .wav files).
 
-<img width="190" height="300" alt="image" src="https://github.com/user-attachments/assets/b4f2cb1f-23fe-48f0-8293-44182e90f52f" />
+🎼1.3. Step 2 – Extract MFCC features
+Script: extract_features.m
 
-Model saving: Trained network and normalization parameters saved for future use.    
+This script computes MFCC-based features for all audio files and saves them into a single .mat file used for training.
 
-### 📁 Folder Structure
-- `code/`: Training, feature extraction, and prediction scripts.
-- `models/`: Trained model (`.mat`) file.
-- `samples/`: Example input and output samples for demonstration.
+How to run:
 
+extract_features
+After this step you should see a file like:
 
-### 🧩 Example
-This example shows how to predict the speaker of a given audio file using the trained model.
+allFeatures.mat
 
-1. **Input audio file:**  
-`samples/input_sample.wav`
+saved in your dataset folder (path is defined inside extract_features.m).
+It typically contains:
 
-2. **Run the prediction in MATLAB:**  
-``matlab
-% Load and predict speaker
-predict_speaker('samples/input_sample.wav');
+allFeatures – 4D tensor of MFCC features
 
-```
-References:  
-96syh. "matlab-speaker-recognition" GitHub, 2025, https://github.com/96syh/matlab-speaker-recognition. Accessed 6 Oct. 2025.  
-Ko, T., Peddinti, V., Povey, D., & Khudanpur, S., 2015. Audio augmentation for speech recognition. Interspeech 2015, pp. 3586–3589.  
-Snyder, D., Garcia-Romero, D., Sell, G., Povey, D., & Khudanpur, S., 2018. X-vectors: Robust DNN embeddings for speaker recognition. IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), pp. 5329–5333.  
-Tiwari, M., & Verma, D. K. (2024). Enhanced text-independent speaker recognition using MFCC, Bi-LSTM, and CNN-based noise removal techniques. International Journal of Speech Technology, 27(4), 1013–1026.  
+allLabels – speaker labels
+
+fs, frameSize, frameStep, maxFrames, etc.
+
+🤖1.4. Step 3 – Train the speaker recognition model
+Script: balanced_final_train.m
+
+This script:
+
+Loads allFeatures.mat
+
+Builds a CNN + BiLSTM architecture
+
+Applies data augmentation and global normalization
+
+Trains the classifier with a class-balanced loss
+
+Saves the trained model as speaker_model_v5_balanced_final_fixed.mat
+
+How to run:
+
+balanced_final_train
+During training you will see:
+
+Training progress window (loss, accuracy curves)
+
+Final train and test accuracy printed in the MATLAB console and confusion matrix
+
+At the end, a file like:
+
+speaker_model_v5_balanced_final_fixed.mat
+
+is saved into your data or project folder, containing:
+
+net – trained network
+
+normParam – normalization parameters
+
+Feature configuration (e.g., numCoeffs, fs, frameSize, …)
+
+Train/test accuracy
+
+🔍1.5. Step 4 – Run the speaker prediction demo
+Example script: examples/predict_speaker.m
+
+This script:
+
+Loads speaker_model_v5_balanced_final_fixed.mat
+
+Lets you choose a .wav file via a file dialog
+
+Applies the same preprocessing and MFCC extraction pipeline
+
+Classifies the speaker and visualises the result
+
+How to run:
+
+predict_speaker
+What will happen:
+
+A file selection dialog pops up – choose a .wav file containing speech.
+
+The script:
+
+Resamples the audio if needed
+
+Applies preprocessing (DC removal, pre-emphasis, bandpass, VAD)
+
+Extracts MFCC + Δ + ΔΔ features
+
+Normalises them with the stored normParam
+
+Passes them to the trained CNN–BiLSTM model
+
+In the MATLAB command window you will see:
+
+text
+Predicted speaker: <speaker_id> (Confidence: XX.XX%)
+A figure window shows:
+
+The MFCC feature map for the selected utterance
+
+A bar plot with the predicted probability for each speaker
+
+🔑2. Keyword Spotting (KWS) – Python
+The second part of this project implements a keyword spotting system using a lightweight CNN–Transformer model trained on a speech commands dataset.
+
+✔️2.1. Prerequisites
+Python 3.8 or later
+
+PyTorch (CPU or GPU)
+
+Other dependencies (see requirements.txt or import statements in the code), for example:
+
+numpy
+scipy
+
+sounddevice or pyaudio (for real-time audio)
+
+librosa or torchaudio (for feature extraction)
+
+🏋️‍♂️2.2. Step 1 – Train the KWS model
+Script: kws_training.py
+
+This script:
+
+Loads the keyword dataset (e.g., a speech commands dataset)
+
+Builds a CNN–Transformer keyword spotting network
+
+Trains the model
+
+Saves learned weights to kws_cnn_transformer.pth
+
+How to run:
+
+From the project root:
+
+python kws_training.py
+Typical behaviour:
+
+Training loss and accuracy printed to the terminal
+
+Optionally, validation accuracy / confusion matrix
+
+At the end of training a file like:
+
+kws_cnn_transformer.pth
+is created in the output or models/ directory (check the script for the exact path).
+
+🎤2.3. Step 2 – Real-time keyword detection
+Script: Keyword_Detection.py
+
+This script:
+
+Loads the trained model from kws_cnn_transformer.pth
+
+Opens the microphone / audio input stream
+
+Continuously listens to audio
+
+Applies the same feature extraction used during training
+
+Runs the CNN–Transformer model on sliding windows
+
+Prints or visualises detected keywords and timestamps
+
+Before running:
+
+Make sure the path to kws_cnn_transformer.pth inside Keyword_Detection.py is correct.
+
+Check / configure:
+
+device index for your microphone (if the script supports it)
+
+the list of target keywords
+
+Run:
+
+python Keyword_Detection.py
+What you should see:
+
+The script will start capturing audio from your microphone.
+
+When you say one of the trained keywords, the program will:
+
+Display the detected keyword in the console, and/or
+
+Show probability scores or a simple UI (depending on how you implemented it).
+
+Stop the script with enter in the terminal.
+
+3. 🧾Summary
+Speaker recognition (MATLAB):
+
+download_ears_dataset.m – download dataset
+
+extract_features.m – extract MFCC features
+
+balanced_final_train.m – train CNN + BiLSTM speaker model and save speaker_model_v5_balanced_final_fixed.mat
+
+examples/predict_speaker.m – demo: select a .wav file and predict the speaker
+
+Keyword spotting (Python):
+
+kws_training.py – train CNN–Transformer KWS model and save kws_cnn_transformer.pth
+
+Keyword_Detection.py – load the model and run real-time keyword detection from the microphone
+
+If you run into issues (paths, dependencies, or dataset setup), please check the comments in each script and adjust directory paths accordingly.
 
