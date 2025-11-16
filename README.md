@@ -84,7 +84,7 @@ Train/test accuracy
 Example script: examples/predict_speaker.m
 
 This script Loads speaker_model_v5_balanced_final_fixed.mat
-Lets you choose a .wav file via a file dialog
+Lets you choose a .wav file via a file dialog,which is the example_audio.wav
 Applies the same preprocessing and MFCC extraction pipeline
 Classifies the speaker and visualises the result
 
